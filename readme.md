@@ -8,7 +8,7 @@ emotion-cli is a command-line interface (CLI) tool for text-based emotion recogn
 
 - Fine-Tuned Model: Uses a pre-trained DistilBERT model fine-tuned on an emotion dataset for high accuracy.
 
-**Installation**
+### Installation
 
 **1. Clone the repository**
 
