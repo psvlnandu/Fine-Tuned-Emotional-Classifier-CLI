@@ -1,0 +1,2 @@
+[console_scripts]
+emotion-cli = emotion_cli_pkg.cli:main
