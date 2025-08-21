@@ -15,6 +15,7 @@ emotion-cli is a command-line interface (CLI) tool for text-based emotion recogn
 `git clone https://github.com/your-username/your-repo-name.git `
 
 `cd emotion-cli`
+
 **2. Set up the virtual environment**
 
 **For conda**
