@@ -1,0 +1,12 @@
+# fine_tuning/config.yaml
+
+model_name: "distilbert/distilbert-base-uncased"
+dataset_name: "dair-ai/emotion"
+output_dir: "distilbert_finetuned_emotion"
+
+training:
+  num_train_epochs: 2
+  learning_rate: 2e-5
+  per_device_train_batch_size: 64
+  per_device_eval_batch_size: 64
+  weight_decay: 0.01
