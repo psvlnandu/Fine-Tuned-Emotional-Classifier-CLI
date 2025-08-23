@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: emotion-cli
+Version: 0.0.1
+Requires-Dist: transformers
+Requires-Dist: torch

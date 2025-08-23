@@ -1,0 +1,9 @@
+pyproject.toml
+src/emotion_cli.egg-info/PKG-INFO
+src/emotion_cli.egg-info/SOURCES.txt
+src/emotion_cli.egg-info/dependency_links.txt
+src/emotion_cli.egg-info/entry_points.txt
+src/emotion_cli.egg-info/requires.txt
+src/emotion_cli.egg-info/top_level.txt
+src/emotion_cli_pkg/__init__.py
+src/emotion_cli_pkg/cli.py
