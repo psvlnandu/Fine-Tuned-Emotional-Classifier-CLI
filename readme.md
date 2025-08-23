@@ -1,5 +1,5 @@
-## emotion-cli: Fine Tuned Emotion Classifier Command-Line Tool
-emotion-cli is a command-line interface (CLI) tool for text-based emotion recognition. Built with Python, it leverages a fine-tuned DistilBERT model to classify the emotion of a given text input.
+## Fine-Tuned-Emotional-Classifier-CLI
+This repository showcases a professional-grade Command-Line Interface (CLI) for emotion classification. The project demonstrates a full MLOps workflow, from fine-tuning a pre-trained DistilBERT model from Hugging Face to packaging the application as a pip-installable tool. It highlights skills in Natural Language Processing (NLP), transfer learning, and model deployment
 <br>
 **Features**
 - Emotion Recognition: Classifies text into various emotion categories (e.g., joy, sadness, anger).
@@ -35,13 +35,28 @@ emotion-cli is a command-line interface (CLI) tool for text-based emotion recogn
 `pip install -e .`
 
 ### Usage
+### Option 1: Use the pre-trained model
 
-To predict the emotion of a text, run the emotion-cli command followed by your text in quotes.
+The repository includes a pre-trained model in the trained_model directory, so you can immediately use the CLI.
 
 `emotion-cli "I am not really happy"`
+### Options 2: Fine-tune the model yourself
+
+You can easily fine-tune the model using the provided run-all.ipynb notebook. The notebook walks you through the entire process, from training to testing.
 
 ### About the Model
+1. **Open the notebook**: Open run-all.ipynb in a Jupyter environment (like Kaggle, VS Code, or JupyterLab).
 
-The core of this tool is a [distilbert/distilbert-base-uncased](https://huggingface.co/distilbert/distilbert-base-uncased) that has been fine-tuned on a public [emotion dataset](https://huggingface.co/datasets/dair-ai/emotion). The model's weights and configuration are included in the model directory of this repository.
+2. **Run all cells**: Execute all cells in the notebook. This will:
 
-Note: The fine-tuning code used to train the model is not included in this repository to keep the project focused on the CLI application itself.
+- Install dependencies.
+- Authenticate to Weights & Biases.
+- Run the fine-tuning script (fine_tuning/train.py), saving the new model to trainedmodel.
+- Copy the newly trained model to the model directory.
+- Automatically test the CLI with your fine-tuned model.
+
+### About this Model
+The core of this tool is a [distilbert/distilbert-base-uncased](https://huggingface.co/distilbert/distilbert-base-uncased) that has been fine-tuned on a public [emotion dataset](https://huggingface.co/datasets/dair-ai/emotion). 
+The fine-tuning code and a pre-trained model are included in this repository. The run-all.ipynb notebook provides a complete and reproducible pipeline for training the model and preparing it for the CLI.
+
+The model directory contains the latest working model for the CLI, while the fine_tuning directory holds the scripts for the training pipeline.
