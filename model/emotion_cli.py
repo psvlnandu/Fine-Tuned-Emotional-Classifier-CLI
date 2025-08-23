@@ -4,7 +4,10 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import argparse
 
-MODEL_PATH = '/content/drive/My Drive/psvlDocuments/CLIFiles/'
+#change this path to your opdir model
+# MODEL_PATH = '/content/drive/My Drive/psvlDocuments/CLIFiles/'
+# Change the path to your local model folder
+MODEL_PATH = './'
 
 # Load the model and tokenizer outside the main function
 # This is more efficient for repeated use
