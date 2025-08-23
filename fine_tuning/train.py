@@ -1,11 +1,17 @@
 # fine_tuning/train.py
 
 import yaml
-from transformers import AutoTokenizer, TrainingArguments
+from transformers import AutoTokenizer, TrainingArguments, Trainer
 from scripts.data_loader import load_and_preprocess_data
 from scripts.trainer import get_model, get_trainer
+import wandb
 
 def main():
+
+    wandb.init(project="huggingface", entity="psvlnandu-clarkson-university")
+    learning_rate = wandb.config.learning_rate
+    batch_size = wandb.config.per_device_train_batch_size
+
     # Load configuration from YAML file
     with open('fine_tuning/config.yaml', 'r') as f:
         config = yaml.safe_load(f)
@@ -27,7 +33,14 @@ def main():
     ds_encoded.set_format("torch")
 
     # Set up training arguments
-    training_args = TrainingArguments(**config['training'])
+    training_args = TrainingArguments(
+        output_dir=config['output_dir'],
+        learning_rate=wandb.config.learning_rate,
+        per_device_train_batch_size=wandb.config.per_device_train_batch_size,
+        num_train_epochs=wandb.config.num_train_epochs, # Make sure this is also in your sweep config
+        per_device_eval_batch_size=wandb.config.per_device_eval_batch_size, # Make sure this is also in your sweep config
+        weight_decay=wandb.config.weight_decay,
+    )
 
     # Get the trainer and start training
     trainer = get_trainer(model, tokenizer, ds_encoded, training_args)
